@@ -1,0 +1,27 @@
+{
+  "name": "graphql-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "types": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VIVEKKOYANI/GraphQL-tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/VIVEKKOYANI/GraphQL-tutorial/issues"
+  },
+  "homepage": "https://github.com/VIVEKKOYANI/GraphQL-tutorial#readme",
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "apollo-server-core": "^3.5.0",
+    "graphql": "^15.7.2"
+  }
+}
