@@ -1,0 +1,17 @@
+# Write your query or mutation here
+ query getAllUser{
+  users {
+    id
+    firstName
+    lastName
+    email
+  }
+}
+
+--------------------------------------------------
+query getAllQuotes{
+  quotes {
+    by
+    name
+  }
+}

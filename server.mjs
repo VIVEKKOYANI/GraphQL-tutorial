@@ -1,10 +1,11 @@
 import { ApolloServer, gql } from 'apollo-server';
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
-import { users } from './fakedb.js';
+import { quotes, users } from './fakedb.js';
 
 const typeDefs = gql`
 type Query {
   users: [User]
+  quotes: [Quote]
 }
 
 type User{
@@ -13,10 +14,16 @@ firstName:String
 lastName:String
 email:String
 }
+
+type Quote {
+  name: String
+  by: ID
+}
 `
 const resolvers = {
   Query: {
-    users: () => users
+    users: () => users,
+    quotes: () => quotes
   }
 }
 
