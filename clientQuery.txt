@@ -15,3 +15,18 @@ query getAllQuotes{
     name
   }
 }
+
+---------------------------------------------------
+# Write your query or mutation here
+query getAllUserWithQuotes {
+  users {
+    id
+    firstName
+    lastName
+    email
+    quotes {
+      by
+      name
+    }
+  }
+}

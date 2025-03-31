@@ -13,6 +13,7 @@ id:ID
 firstName:String
 lastName:String
 email:String
+quotes: [Quote]
 }
 
 type Quote {
@@ -24,6 +25,9 @@ const resolvers = {
   Query: {
     users: () => users,
     quotes: () => quotes
+  },
+  User: {
+    quotes: (ur) => quotes.filter(quote => quote.by === ur.id) 
   }
 }
 
