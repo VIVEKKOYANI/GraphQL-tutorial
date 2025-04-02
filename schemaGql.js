@@ -20,6 +20,10 @@ type Quote {
   name: String
   by: ID
 }
+
+type Mutation{
+  signupUserDummy(firstName:String!, lastName:String!, email:String!, password: String!): User
+}
 `
 
 export default typeDefs
