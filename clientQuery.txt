@@ -64,3 +64,13 @@ query getUserById($userId: ID!){
     }
   }
 }
+
+--------------------------------------------------------
+mutation createUser($userNew:UserInput!) {
+  user:signupUserDummy(userNew: $userNew) {
+    id
+    firstName
+    lastName
+    email
+  }
+}
