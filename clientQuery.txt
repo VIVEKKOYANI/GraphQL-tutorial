@@ -1,7 +1,7 @@
 # Write your query or mutation here
  query getAllUser{
   users {
-    id
+    _id
     firstName
     lastName
     email
@@ -20,7 +20,7 @@ query getAllQuotes{
 # Write your query or mutation here
 query getAllUserWithQuotes {
   users {
-    id
+    _id
     firstName
     lastName
     email
@@ -33,8 +33,8 @@ query getAllUserWithQuotes {
 
 -----------------------------------------------------
 query getUserById{
-  user(id: "23131"){
-    id
+  user(_id: "23131"){
+    _id
     firstName
     lastName
     email
@@ -54,8 +54,8 @@ query getQuotesById{
 
 ------------------------------------------------------
 query getUserById($userId: ID!){
-  user(id: $userId){
-    id
+  user(_id: $userId){
+    _id
     firstName
     lastName
     email
@@ -68,7 +68,7 @@ query getUserById($userId: ID!){
 --------------------------------------------------------
 mutation createUser($userNew:UserInput!) {
   user:signupUserDummy(userNew: $userNew) {
-    id
+    _id
     firstName
     lastName
     email
