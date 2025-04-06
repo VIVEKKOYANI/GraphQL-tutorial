@@ -15,6 +15,10 @@ mongoose.connect(MONGO_URI, {
 .then(() => console.log('MongoDB Connected'))
 .catch((err) => console.log('MongoDB Connection Error:', err));
 
+// Import Models here 
+import './models/Quotes.js';
+import './models/User.js';
+
 import resolvers from './resolvers.js';
 
 const server = new ApolloServer({
