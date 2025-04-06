@@ -22,7 +22,7 @@ type Quote {
 }
 
 type Mutation{
-  signupUserDummy(userNew:UserInput!): User
+  signupUser(userNew:UserInput!): User
 }
 
 input UserInput {

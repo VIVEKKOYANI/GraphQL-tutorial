@@ -1,5 +1,9 @@
+import mongoose from "mongoose";
 import { quotes, users } from "./fakedb.js";
 import { randomBytes } from 'crypto';
+
+const User = mongoose.model("User");
+import bcrypt from "bcryptjs";
 
 const resolvers = {
   Query: {
@@ -12,14 +16,19 @@ const resolvers = {
     quotes: (ur) => quotes.filter(quote => quote.by === ur._id)
   },
   Mutation: {
-    signupUserDummy: (_, { userNew }) => {
-      const _id = randomBytes(5).toString('hex')
-      users.push({
-        _id,
-        ...userNew
+    signupUser: async (_, { userNew }) => {
+      const user = await User.findOne({email: userNew.email})
+      if(user){
+        throw new Error("User already exists with that email")
+      }
+      const hashedPassword = await bcrypt.hash(userNew.password, 12);
+
+      const newUser = new User({
+        ...userNew,
+        password: hashedPassword
       })
 
-      return users.find((user) => user._id === _id);
+      return await newUser.save();
     }
   }
 }
