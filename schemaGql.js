@@ -9,20 +9,20 @@ type Query {
 }
 
 type User{
-_id:ID
-firstName:String
-lastName:String
-email:String
+_id:ID!
+firstName:String!
+lastName:String!
+email:String!
 quotes: [Quote]
 }
 
 type Quote {
-  name: String
-  by: ID
+  name: String!
+  by: ID!
 }
 
 type Token{
-token: String
+token: String!
 }
 
 type Mutation{
@@ -31,10 +31,10 @@ type Mutation{
 }
 
 input UserInput {
-firstName:String!, 
-lastName:String!, 
-email:String!, 
-password: String!,
+firstName:String! 
+lastName:String! 
+email:String!
+password: String!
 }
 
 input UserSigninInput { 
