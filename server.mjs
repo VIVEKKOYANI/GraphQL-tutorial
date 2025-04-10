@@ -17,17 +17,19 @@ import './models/Quotes.js';
 import './models/User.js';
 
 import resolvers from './resolvers.js';
+// this is middleware
+const context = ({req}) => {
+  const {authorization} = req.headers;
+  if(authorization){
+    const {userId} = jwt.verify(authorization, process.env.JWT_SECRET);
+    return {userId}
+  }
+}
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({req}) => {
-    const {authorization} = req.headers;
-    if(authorization){
-      const {userId} = jwt.verify(authorization, process.env.JWT_SECRET);
-      return {userId}
-    }
-  },
+  context,
   plugins: [
     ApolloServerPluginLandingPageGraphQLPlayground()
   ]

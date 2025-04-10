@@ -9,13 +9,13 @@ const Quote = mongoose.model("Quote");
 
 const resolvers = {
   Query: {
-    users: () => users,
-    user: (_, args) => users.find((user) => user._id === args._id),
-    quotes: () => quotes,
-    iquote: (_, args) => quotes.filter((quote) => quote.by === args.by),
+    users: async () => await User.find({}),
+    user: async (_, {_id}) => await User.findOne({_id}) ,
+    quotes: async () => await Quote.find({}).populate("by", "_id firstName"),
+    iquote: async (_, {by}) => await Quote.find({by}),
   },
   User: {
-    quotes: (ur) => quotes.filter(quote => quote.by === ur._id)
+    quotes: async (ur) => await Quote.find({by: ur._id}) 
   },
   Mutation: {
     signupUser: async (_, { userNew }) => {

@@ -8,6 +8,16 @@ type Query {
   iquote(by:ID!): [Quote]
 }
 
+type QuoteWithName {
+name: String
+by: IdName
+}
+
+type IdName{
+_id: string
+firstName: string
+}
+
 type User{
 _id:ID!
 firstName:String!
