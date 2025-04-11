@@ -14,8 +14,8 @@ by: IdName
 }
 
 type IdName{
-_id: string
-firstName: string
+_id: String
+firstName: String
 }
 
 type User{
