@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../App.css'
 
-function Login() {
+function SignUp() {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -22,8 +22,24 @@ function Login() {
   return (
     <div className="center-wrapper">
       <div className='my-container'>
-        <h5>Login!!</h5>
+        <h5>SignUp!!</h5>
         <form onSubmit={handleSubmit}>
+        <input
+            type='text'
+            placeholder='First Name'
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type='text'
+            placeholder='Last Name'
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            required
+          />
           <input
             type='email'
             placeholder='Email'
@@ -40,11 +56,11 @@ function Login() {
             onChange={handleChange}
             required
           />
-          <button className='btn #673ab7 deep-purple' type='submit'>Login</button>
+          <button className='btn #673ab7 deep-purple' type='submit'>Submit</button>
         </form>
       </div>
     </div>
   )
 }
 
-export default Login
+export default SignUp
