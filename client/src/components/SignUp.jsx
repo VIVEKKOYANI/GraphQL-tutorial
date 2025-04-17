@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../App.css'
+import { Link } from 'react-router-dom';
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -56,6 +57,7 @@ function SignUp() {
             onChange={handleChange}
             required
           />
+          <Link to="/login"><p>Already have an account ?</p></Link>
           <button className='btn #673ab7 deep-purple' type='submit'>Submit</button>
         </form>
       </div>
