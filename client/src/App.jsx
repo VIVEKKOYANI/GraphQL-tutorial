@@ -1,19 +1,14 @@
-import './App.css'
-import CreateQuote from './components/CreateQuote'
-import Login from './components/Login'
+import { useRoutes } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Profile from './components/Profile'
-import SignUp from './components/SignUp'
+import { routes } from './routes'
+import './App.css'
 
 function App() {
-
+  const element = useRoutes(routes)
   return (
     <>
       <Navbar />
-      {/* <Login /> */}
-      {/* <SignUp /> */}
-      {/* <Profile /> */}
-      <CreateQuote />
+      {element}
     </>
   )
 }
