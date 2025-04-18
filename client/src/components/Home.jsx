@@ -13,14 +13,15 @@ export default function Home() {
   return (
     <div className='center-wrapper'>
       <div className="my-container">
-        {data?.quotes?.map((quote) => {
-          return (
-            <blockquote>
-              <h6>{quote.name}</h6>
-              <p className="right-align">~{quote.by.firstName}</p>
-            </blockquote>
-          )
-        })}
+        {data.quotes.length === 0 ? <h2>No Quotes available</h2> :
+          data.quotes.map((quote) => {
+            return (
+              <blockquote>
+                <h6>{quote.name}</h6>
+                <p className="right-align">~{quote.by.firstName}</p>
+              </blockquote>
+            )
+          })}
       </div>
     </div>
   )
