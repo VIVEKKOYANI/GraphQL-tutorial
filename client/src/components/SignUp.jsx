@@ -20,7 +20,11 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signupUser(formData)
+    signupUser({
+      variables: {
+        userNew: formData
+      }
+    })
   }
 
   if(loading) return <h1>Loading</h1>
