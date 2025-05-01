@@ -7,3 +7,10 @@ mutation createUser($userNew:UserInput!) {
   }
 }
 `
+export const SIGNIN_USER = gql`
+mutation signinUser($userSignin:UserSigninInput!) {
+  user:signinUser(userSignin: $userSignin) {
+  token
+  }
+}
+`
