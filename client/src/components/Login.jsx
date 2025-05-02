@@ -10,7 +10,12 @@ function Login() {
     email: '',
     password: ''
   });
-  const [signinUser, {error, data, loading}] = useMutation(SIGNIN_USER)
+  const [signinUser, {error, data, loading}] = useMutation(SIGNIN_USER, {
+    onCompleted(data){
+      localStorage.setItem("token",data.user.token)
+      navigate('/')
+  }
+  })
 
   const handleChange = (e) => {
     setFormData({
@@ -28,11 +33,6 @@ function Login() {
 
   if(loading){
     return <h1>loading</h1>
-  }
-
-  if(data){
-    localStorage.setItem("token", data.user.token);
-    navigate('/');
   }
 
   return (
