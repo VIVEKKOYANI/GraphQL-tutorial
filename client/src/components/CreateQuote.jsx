@@ -1,10 +1,24 @@
+import { useMutation } from '@apollo/client';
 import React, { useState } from 'react'
+import { CREATE_QUOTE } from '../gqloperations/mutations';
 
 function CreateQuote() {
   const [quote, setQuote] = useState("");
+  const [createQuote, {loading, error, data}] = useMutation(CREATE_QUOTE);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    createQuote({
+      variables: {
+        name: quote
+      }
+    })
+  }
+
+  if(loading)return <h1>loading</h1>
+
+  if(error){
+    console.log(error.message);
   }
   return (
     <div className='center-wrapper'>
